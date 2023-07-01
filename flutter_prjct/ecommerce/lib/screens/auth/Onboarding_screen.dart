@@ -50,6 +50,8 @@ class Onboarding_screen extends StatelessWidget {
               height:500,
               width:500 ,
               color: Colors.black,
+              child: Image.asset("assets/images/onbardingpic1.png",fit:BoxFit.fill,),
+              
             ),
              SizedBox(
               height: 30,
