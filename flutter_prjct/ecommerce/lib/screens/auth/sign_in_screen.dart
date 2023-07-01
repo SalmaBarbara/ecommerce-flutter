@@ -83,7 +83,7 @@ class SigninScreen extends StatelessWidget {
                    ]
               ),
             
-                
+              SizedBox(height: 20,)  ,
               
             TextButton(
                       onPressed: printSalam,
@@ -138,6 +138,7 @@ class SigninScreen extends StatelessWidget {
                         ),
               ],
             ),
+            SizedBox(height: 16,),
                 
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
