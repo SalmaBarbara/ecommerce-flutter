@@ -35,6 +35,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  flutter_svg: ^2.0.7
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +64,7 @@ flutter:
     - assets/icons/facebook.png
     - assets/icons/google.png
     - assets/icons/twitter.png
+    - assets/images/onbardingpic1.png
     
     
 
@@ -83,9 +85,10 @@ flutter:
   # example:
   fonts:
     - family: pacific
-      fonts: 
-        - asset: assets/fonts/Pacifico/Pacifico-Regular.ttf
-
+      fonts:
+        - asset: assets/fonts/Pacifico/Pacifico-Regular.ttf 
+       
+    
     
   # fonts:
   #   - family: Schyler
