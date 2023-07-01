@@ -121,6 +121,10 @@ class SignupScreen extends StatelessWidget {
                       shape: BoxShape.circle,
                       color: Colors.grey.shade300,
                     ) ,
+                    child: Container(
+                            margin: EdgeInsets.all(10),
+                            child: Image.asset( "assets/icons/google.png"),
+                          ),
                   ),
                   SizedBox(
                     width:30 ,
@@ -132,6 +136,11 @@ class SignupScreen extends StatelessWidget {
                       shape: BoxShape.circle,
                       color: Colors.grey.shade300,
                     ) ,
+                    child: Container(
+                            margin: EdgeInsets.all(10),
+                            child: Image.asset( "assets/icons/facebook.png"),
+                          ),
+                   
                   ),
                   SizedBox(
                     width:30 ,
@@ -143,6 +152,11 @@ class SignupScreen extends StatelessWidget {
                       shape: BoxShape.circle,
                       color: Colors.grey.shade300,
                     ) ,
+                    child: Container(
+                            margin: EdgeInsets.all(10),
+                            child: Image.asset( "assets/icons/twitter.png"),
+                          ),
+                    
                   ),
                 ],
               ),
