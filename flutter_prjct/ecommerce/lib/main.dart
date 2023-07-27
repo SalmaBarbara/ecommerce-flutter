@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: "pacific",
       ),
-      home:const SignupScreen(),
+      home:const SigninScreen(),
     );
   }
 }
