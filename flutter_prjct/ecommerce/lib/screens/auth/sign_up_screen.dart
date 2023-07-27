@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+var formKey=GlobalKey<FormState>();
+
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -11,201 +13,204 @@ class SignupScreen extends StatelessWidget {
        body:SafeArea(
          child: Padding(
           padding:EdgeInsets.all(35),
-           child:SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
-             child: Column(children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(Icons.arrow_back_ios_new_rounded,size: 16,color:Colors.grey,),
-                  Text('Sign Up',
-                  style: 
-                  TextStyle(
-                  color:Colors.grey,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500
-                  ),),
-                  Icon(Icons.arrow_back_ios_new_rounded,size: 16,color:Colors.white,),
-                ],
-              ),
-              SizedBox(
-                height: 45,
-              ),
-              Text('Register account',
-              style:TextStyle(
-                color: Colors.black,
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
+           child:Form(
+            key: formKey,
+             child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+               child: Column(children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(Icons.arrow_back_ios_new_rounded,size: 16,color:Colors.grey,),
+                    Text('Sign Up',
+                    style: 
+                    TextStyle(
+                    color:Colors.grey,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500
+                    ),),
+                    Icon(Icons.arrow_back_ios_new_rounded,size: 16,color:Colors.white,),
+                  ],
                 ),
-              ),
-               
-              SizedBox(
-                height: 12,
-              ),
-              Text('Complete your details or continue`\nwith social media',
-              style: TextStyle(
-                color:Colors.grey,
-                height: 1.5,
-                fontWeight: FontWeight.w400
-              ),
-              textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              TextFormField(
+                SizedBox(
+                  height: 45,
+                ),
+                Text('Register account',
+                style:TextStyle(
+                  color: Colors.black,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  ),
+                ),
+                 
+                SizedBox(
+                  height: 12,
+                ),
+                Text('Complete your details or continue`\nwith social media',
+                style: TextStyle(
+                  color:Colors.grey,
+                  height: 1.5,
+                  fontWeight: FontWeight.w400
+                ),
+                textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                TextFormField(
+                  validator:(String? value){
+                    if(value!.length <5){
+                      return "The length is < 5";
+                    }else if (!value.contains("@")){
+                      return "Email must contain @";
+                    }else if (!value.contains(".")){
+                      return "Email must contain .";
+                    }else{
+                      return null;
+                    }
+                  },
+                  decoration: InputDecoration(
+                    labelText: "Email",
+                    hintText: "Enter your email ",
+                    suffixIcon: Icon(Icons.email_outlined),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    )
+                  ) ,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                   validator:(String? value){
+                    if(value!.length <8){
+                      return "The length is < 8";
+                    }else{
+                      return null;
+                    }
+                    },
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: "Password",
+                    hintText: "Enter your password",
+                    suffixIcon: Icon(Icons.lock_outlined),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    )
+                  ) ,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+               TextFormField(
                 validator:(String? value){
-                  if(value!.length <5){
-                    return "The length is < 5";
-                  }else if (!value.contains("@")){
-                    return "Email must contain @";
-                  }else if (!value.contains(".")){
-                    return "Email must contain .";
-                  }else{
-                    return null;
-                  }
-                },
-                decoration: InputDecoration(
-                  labelText: "Email",
-                  hintText: "Enter your email ",
-                  suffixIcon: Icon(Icons.email_outlined),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50),
-                  )
-                ) ,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              TextFormField(
-                 validator:(String? value){
-                  if(value!.length <8){
-                    return "The length is < 8";
-                  }else{
-                    return null;
-                  }
-                  },
+                    if(value!.length <8){
+                      return "The length is < 8";
+                    }else{
+                      return null;
+                    }
+                    },
                 obscureText: true,
-                decoration: InputDecoration(
-                  labelText: "Password",
-                  hintText: "Enter your password",
-                  suffixIcon: Icon(Icons.lock_outlined),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50),
-                  )
-                ) ,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-             TextFormField(
-              validator:(String? value){
-                  if(value!.length <8){
-                    return "The length is < 8";
-                  }else{
-                    return null;
-                  }
-                  },
-              obscureText: true,
-                decoration: InputDecoration(
-                  labelText: "Confirme Password",
-                  hintText: "Confirme your Password",
-                  suffixIcon: Icon(Icons.lock_outlined),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50),
-                  )
-                ) ,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              TextButton(
-                onPressed: printSalam,
-                child: Text('Continue'),
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.orange,
-                  foregroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 130,
-                    vertical: 4,
-                  ),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-              ),
-              ),
-              SizedBox(
-                height:60,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 35,
-                    height: 35, 
-                   
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.grey.shade300,
-                    ) ,
-                    alignment: Alignment.center,
-                    child: SvgPicture.asset("assets/icons/google.svg",
-                    height: 20,
-                    width: 20,),
-                          
-                  ),
-                  SizedBox(
-                    width:30 ,
-                  ),
-                  Container(
-                    width: 35,
-                    height: 35, 
-                     decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.grey.shade300,
-                    
-                    ) ,
-                    alignment: Alignment.center,                   
-                    
-                  //margin: EdgeInsets.all(10),
-                            child: SvgPicture.asset( "assets/icons/facebook.svg",
-                               width: 20,
-                               height: 20,
+                  decoration: InputDecoration(
+                    labelText: "Confirme Password",
+                    hintText: "Confirme your Password",
+                    suffixIcon: Icon(Icons.lock_outlined),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    )
+                  ) ,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextButton(
+                  onPressed: signUp,
+                  child: Text('Continue'),
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.orange,
+                    foregroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 130,
+                      vertical: 4,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                ),
+                ),
+                SizedBox(
+                  height:60,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 35,
+                      height: 35, 
+                     
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.grey.shade300,
+                      ) ,
+                      alignment: Alignment.center,
+                      child: SvgPicture.asset("assets/icons/google.svg",
+                      height: 20,
+                      width: 20,),
+                            
+                    ),
+                    SizedBox(
+                      width:30 ,
+                    ),
+                    Container(
+                      width: 35,
+                      height: 35, 
+                       decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.grey.shade300,
+                      
+                      ) ,
+                      alignment: Alignment.center,                   
+                      
+                    //margin: EdgeInsets.all(10),
+                              child: SvgPicture.asset( "assets/icons/facebook.svg",
+                                 width: 20,
+                                 height: 20,
+                              ),
+                            
+                            
+                     
+                    ),
+                    SizedBox(
+                      width:30 ,
+                    ),
+                    Container(
+                      width: 35,
+                      height: 35, 
+                       decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.grey.shade300,
+                      ) ,
+                      alignment: Alignment.center,
+                      child: Container(
+                              //alignment: Alignment.center,
+                             // margin: EdgeInsets.all(10),
+                              child: SvgPicture.asset( "assets/icons/twitter.svg",
+                                width: 20,
+                                height: 20,),
                             ),
-                          
-                          
-                   
-                  ),
-                  SizedBox(
-                    width:30 ,
-                  ),
-                  Container(
-                    width: 35,
-                    height: 35, 
-                     decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.grey.shade300,
-                    ) ,
-                    alignment: Alignment.center,
-                    child: Container(
-                            //alignment: Alignment.center,
-                           // margin: EdgeInsets.all(10),
-                            child: SvgPicture.asset( "assets/icons/twitter.svg",
-                              width: 20,
-                              height: 20,),
-                          ),
-                    
-                  ),
+                      
+                    ),
+                  ],
+                ),
+                Text('By continuing you confirm that you agree with our \nTerms and Conditions',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
+                ),
                 ],
-              ),
-              Text('By continuing you confirm that you agree with our \nTerms and Conditions',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.grey,
-              ),
-              ),
-              ],
-              ),
+                ),
+             ),
            ),
          ),
     ),
@@ -213,8 +218,9 @@ class SignupScreen extends StatelessWidget {
   
   }
   
-   void printSalam(){
-     print("Salam");
-    }
+  
+   void signUp(){
+     formKey.currentState!.validate(); 
+       }
 
 }
