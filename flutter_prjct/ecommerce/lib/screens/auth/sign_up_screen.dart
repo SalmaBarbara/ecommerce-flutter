@@ -21,7 +21,7 @@ class SignupScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Icon(Icons.arrow_back_ios_new_rounded,size: 16,color:Colors.grey,),
+                    IconButton(onPressed: (){Navigator.pushNamed(context, "/SignIn");}, icon: Icon(Icons.arrow_back_ios_new_rounded,size: 16,color:Colors.grey,)),
                     Text('Sign Up',
                     style: 
                     TextStyle(

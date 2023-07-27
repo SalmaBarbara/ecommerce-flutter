@@ -1,6 +1,7 @@
 import 'package:ecommerce/screens/auth/widget/cheackbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 var formKey=GlobalKey<FormState>();
 String email="",password="";
 bool isChecked=false;
@@ -213,12 +214,17 @@ class SigninScreen extends StatelessWidget {
                       fontWeight: FontWeight.w400
                     ),)
                     ,
-                  Text('Sign in',style: TextStyle(
-                      color:Colors.orange,
-                      height: 1.5,
-                      fontWeight: FontWeight.w400
-                    ),
-                    ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context,"/SignUp");
+                    },
+                    child: Text('Sign up',style: TextStyle(
+                        color:Colors.orange,
+                        height: 1.5,
+                        fontWeight: FontWeight.w400
+                      ),
+                      ),
+                  ),
                     
                     
                     
