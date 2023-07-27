@@ -1,5 +1,4 @@
 import 'package:ecommerce/screens/auth/widget/cheackbox.dart';
-import 'package:ecommerce/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 var formKey=GlobalKey<FormState>();
@@ -244,10 +243,8 @@ class SigninScreen extends StatelessWidget {
       
        // Within the `FirstRoute` widget
 
-  Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const Home()),
-  );
+  Navigator.pushNamed(
+    context,"/home");
 }
 
      }
