@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
 
@@ -121,10 +123,11 @@ class SignupScreen extends StatelessWidget {
                       shape: BoxShape.circle,
                       color: Colors.grey.shade300,
                     ) ,
-                    child: Container(
-                            margin: EdgeInsets.all(10),
-                            child: Image.asset( "assets/icons/google.png"),
-                          ),
+                    alignment: Alignment.center,
+                    child: SvgPicture.asset("assets/icons/google.svg",
+                    height: 20,
+                    width: 20,),
+                          
                   ),
                   SizedBox(
                     width:30 ,
@@ -135,11 +138,17 @@ class SignupScreen extends StatelessWidget {
                      decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.grey.shade300,
+                    
                     ) ,
-                    child: Container(
-                            margin: EdgeInsets.all(10),
-                            child: Image.asset( "assets/icons/facebook.png"),
-                          ),
+                    alignment: Alignment.center,                   
+                    
+                  //margin: EdgeInsets.all(10),
+                            child: SvgPicture.asset( "assets/icons/facebook.svg",
+                               width: 20,
+                               height: 20,
+                            ),
+                          
+                          
                    
                   ),
                   SizedBox(
@@ -152,9 +161,13 @@ class SignupScreen extends StatelessWidget {
                       shape: BoxShape.circle,
                       color: Colors.grey.shade300,
                     ) ,
+                    alignment: Alignment.center,
                     child: Container(
-                            margin: EdgeInsets.all(10),
-                            child: Image.asset( "assets/icons/twitter.png"),
+                            //alignment: Alignment.center,
+                           // margin: EdgeInsets.all(10),
+                            child: SvgPicture.asset( "assets/icons/twitter.svg",
+                              width: 20,
+                              height: 20,),
                           ),
                     
                   ),
