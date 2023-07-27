@@ -1,3 +1,4 @@
+import 'package:ecommerce/screens/auth/widget/cheackbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 var formKey=GlobalKey<FormState>();
@@ -240,28 +241,4 @@ class SigninScreen extends StatelessWidget {
      }
        }
    
-}
-class StatefulCheckBox extends StatefulWidget {
-  const StatefulCheckBox({super.key}) ;
-
-  @override
-
-   _StatefulCheckBoxState createState() => _StatefulCheckBoxState();
-}
-class _StatefulCheckBoxState extends State {
-  
-
-  @override
-  Widget build(BuildContext context) {
-    return Checkbox(value: isChecked, onChanged: ChangeCheckBoxState);
-
-
-  }
-   void ChangeCheckBoxState(bool? value){
-      isChecked=value!;
-      setState(() {
-        
-      });
-    }
-
 }
