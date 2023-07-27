@@ -54,6 +54,17 @@ class SignupScreen extends StatelessWidget {
                 height: 40,
               ),
               TextFormField(
+                validator:(String? value){
+                  if(value!.length <5){
+                    return "The length is < 5";
+                  }else if (!value.contains("@")){
+                    return "Email must contain @";
+                  }else if (!value.contains(".")){
+                    return "Email must contain .";
+                  }else{
+                    return null;
+                  }
+                },
                 decoration: InputDecoration(
                   labelText: "Email",
                   hintText: "Enter your email ",
@@ -67,6 +78,13 @@ class SignupScreen extends StatelessWidget {
                 height: 20,
               ),
               TextFormField(
+                 validator:(String? value){
+                  if(value!.length <8){
+                    return "The length is < 8";
+                  }else{
+                    return null;
+                  }
+                  },
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: "Password",
@@ -81,6 +99,13 @@ class SignupScreen extends StatelessWidget {
                 height: 20,
               ),
              TextFormField(
+              validator:(String? value){
+                  if(value!.length <8){
+                    return "The length is < 8";
+                  }else{
+                    return null;
+                  }
+                  },
               obscureText: true,
                 decoration: InputDecoration(
                   labelText: "Confirme Password",
