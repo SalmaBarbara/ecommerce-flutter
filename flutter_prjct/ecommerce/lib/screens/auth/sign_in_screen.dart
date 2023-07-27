@@ -1,4 +1,5 @@
 import 'package:ecommerce/screens/auth/widget/cheackbox.dart';
+import 'package:ecommerce/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 var formKey=GlobalKey<FormState>();
@@ -70,10 +71,11 @@ class SigninScreen extends StatelessWidget {
                       //return null;
                     //}
                   },
-                       
+                       keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(horizontal: 25, ),
                           labelText: "Email",
-                          hintText: "Enter your emil",
+                          hintText: "Enter your email",
                           suffixIcon: Icon(Icons.email_outlined),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(50),
@@ -92,8 +94,10 @@ class SigninScreen extends StatelessWidget {
                       return null;
                     }
                     },
+                        keyboardType: TextInputType.visiblePassword,
                         obscureText: true,
                         decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(horizontal: 25, ),
                           labelText: "Password",
                           hintText: "Enter your password",
                           suffixIcon: Icon(Icons.lock_outlined),
@@ -126,7 +130,7 @@ class SigninScreen extends StatelessWidget {
                 SizedBox(height: 20,)  ,
                 
               TextButton(
-                        onPressed: signIn,
+                        onPressed: ()=>signIn(context),
                         child: Text('Continue'),
                         style: TextButton.styleFrom(
                           backgroundColor: Colors.orange,
@@ -232,13 +236,21 @@ class SigninScreen extends StatelessWidget {
   
   }
   
-   void signIn(){
+   void signIn(context){
      if(formKey.currentState!.validate()){
       formKey.currentState!.save();
       print(email);
       print(password);
+      
+       // Within the `FirstRoute` widget
+
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const Home()),
+  );
+}
 
      }
        }
    
-}
+

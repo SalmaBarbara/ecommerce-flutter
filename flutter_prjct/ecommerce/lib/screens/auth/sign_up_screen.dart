@@ -78,7 +78,10 @@ class SignupScreen extends StatelessWidget {
                       //return null;
                     //}
                   },
+                  keyboardType: TextInputType.emailAddress,
+
                   decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(horizontal: 25, ),
                     labelText: "Email",
                     hintText: "Enter your email ",
                     suffixIcon: Icon(Icons.email_outlined),
@@ -98,8 +101,11 @@ class SignupScreen extends StatelessWidget {
                       return null;
                     }
                     },
+                    keyboardType: TextInputType.visiblePassword,
+
                   obscureText: true,
                   decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(horizontal: 25, ),
                     labelText: "Password",
                     hintText: "Enter your password",
                     suffixIcon: Icon(Icons.lock_outlined),
@@ -119,8 +125,10 @@ class SignupScreen extends StatelessWidget {
                       return null;
                     }
                     },
+                keyboardType: TextInputType.visiblePassword,
                 obscureText: true,
                   decoration: InputDecoration(
+                    contentPadding: EdgeInsets.symmetric(horizontal: 25, ),
                     labelText: "Confirme Password",
                     hintText: "Confirme your Password",
                     suffixIcon: Icon(Icons.lock_outlined),
