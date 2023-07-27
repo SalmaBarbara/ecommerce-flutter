@@ -37,6 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.7
   image_cropper: ^5.0.0
+  shared_preferences: ^2.2.0
+  get:
+
 
 
 dev_dependencies:
