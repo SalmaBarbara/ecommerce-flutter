@@ -59,15 +59,24 @@ class SignupScreen extends StatelessWidget {
                 ),
                 TextFormField(
                   validator:(String? value){
-                    if(value!.length <5){
-                      return "The length is < 5";
-                    }else if (!value.contains("@")){
-                      return "Email must contain @";
-                    }else if (!value.contains(".")){
-                      return "Email must contain .";
-                    }else{
-                      return null;
-                    }
+                    final bool emailValid = 
+    RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+      .hasMatch(value!);
+                     if(!emailValid){
+                      return "Email not valid ";
+                     }else{
+                      return null ;
+                     }
+
+                    //if(value!.length <5){
+                     // return "The length is < 5";
+                    //}else if (!value.contains("@")){
+                      //return "Email must contain @";
+                    //}else if (!value.contains(".")){
+                      //return "Email must contain .";
+                    //}else{
+                      //return null;
+                    //}
                   },
                   decoration: InputDecoration(
                     labelText: "Email",

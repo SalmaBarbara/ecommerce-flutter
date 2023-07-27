@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 var formKey=GlobalKey<FormState>();
+String email="",password="";
+bool isChecked=false;
 class SigninScreen extends StatelessWidget {
   const SigninScreen({super.key});
 
@@ -44,16 +46,28 @@ class SigninScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 45,),
                 TextFormField(
+                       onSaved: (String?newValue) {
+                        email=newValue!;
+                       },
                         validator:(String? value){
-                    if(value!.length <5){
-                      return "The length is < 5";
-                    }else if (!value.contains("@")){
-                      return "Email must contain @";
-                    }else if (!value.contains(".")){
-                      return "Email must contain .";
-                    }else{
-                      return null;
-                    }
+                           final bool emailValid = 
+    RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+      .hasMatch(value!);
+                     if(!emailValid){
+                      return "Email not valid ";
+                     }else{
+                      return null ;
+                     }
+
+                    //if(value!.length <5){
+                      //return "The length is < 5";
+                    //}else if (!value.contains("@")){
+                      //return "Email must contain @";
+                    //}else if (!value.contains(".")){
+                      //return "Email must contain .";
+                    //}else{
+                      //return null;
+                    //}
                   },
                        
                         decoration: InputDecoration(
@@ -67,6 +81,9 @@ class SigninScreen extends StatelessWidget {
                       ),
                 SizedBox(height: 20,),
                 TextFormField(
+                  onSaved: (String?newValue) {
+                        password=newValue!;
+                       },
                   validator:(String? value){
                     if(value!.length <8){
                       return "The length is < 8";
@@ -88,7 +105,7 @@ class SigninScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [ Row(
                   children: [
-                    Checkbox(value: true, onChanged: ChangeCheckBoxState),
+                    StatefulCheckBox(),
                     Text('Remember me',style:TextStyle(
                       color: Colors.grey,
                     
@@ -215,10 +232,36 @@ class SigninScreen extends StatelessWidget {
   }
   
    void signIn(){
-     formKey.currentState!.validate(); 
+     if(formKey.currentState!.validate()){
+      formKey.currentState!.save();
+      print(email);
+      print(password);
+
+     }
        }
-    void ChangeCheckBoxState(bool? value){
-      print('ChangeCheckBoxState');
+   
+}
+class StatefulCheckBox extends StatefulWidget {
+  const StatefulCheckBox({super.key}) ;
+
+  @override
+
+   _StatefulCheckBoxState createState() => _StatefulCheckBoxState();
+}
+class _StatefulCheckBoxState extends State {
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Checkbox(value: isChecked, onChanged: ChangeCheckBoxState);
+
+
+  }
+   void ChangeCheckBoxState(bool? value){
+      isChecked=value!;
+      setState(() {
+        
+      });
     }
 
 }
