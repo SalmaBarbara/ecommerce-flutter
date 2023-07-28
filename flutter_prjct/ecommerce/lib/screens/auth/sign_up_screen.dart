@@ -1,3 +1,4 @@
+import 'package:ecommerce/screens/auth/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 var formKey=GlobalKey<FormState>();
@@ -121,10 +122,13 @@ class SignupScreen extends StatelessWidget {
                 validator:(String? value){
                     if(value!.length <8){
                       return "The length is < 8";
-                    }else{
-                      return null;
-                    }
-                    },
+                    }else if(value!=password){
+                      return "Not matched passwords";
+                      }else{
+                        return null;
+                      }
+                      },
+                    
                 keyboardType: TextInputType.visiblePassword,
                 obscureText: true,
                   decoration: InputDecoration(
