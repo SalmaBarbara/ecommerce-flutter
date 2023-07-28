@@ -1,10 +1,12 @@
 import 'package:ecommerce/screens/auth/widget/cheackbox.dart';
+import 'package:ecommerce/screens/auth/widget/visibilty.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 var formKey=GlobalKey<FormState>();
 String email="",password="";
 bool isChecked=false;
+
 class SigninScreen extends StatelessWidget {
   const SigninScreen({super.key});
 
@@ -83,29 +85,7 @@ class SigninScreen extends StatelessWidget {
                         ) ,
                       ),
                 SizedBox(height: 20,),
-                TextFormField(
-                  onSaved: (String?newValue) {
-                        password=newValue!;
-                       },
-                  validator:(String? value){
-                    if(value!.length <8){
-                      return "The length is < 8";
-                    }else{
-                      return null;
-                    }
-                    },
-                        keyboardType: TextInputType.visiblePassword,
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(horizontal: 25, ),
-                          labelText: "Password",
-                          hintText: "Enter your password",
-                          suffixIcon: Icon(Icons.lock_outlined),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          )
-                        ) ,
-                      ),
+                visibiltypassword(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [ Row(
