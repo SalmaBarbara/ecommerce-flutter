@@ -1,5 +1,7 @@
 name: Ecommerce project CI
 
+name: Dart and Flutter
+
 on:
   push:
     branches: [ "main" ]
@@ -17,6 +19,8 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           flutter-version: stable
+          flutter-channel: stable
+          flutter-arch: x64
 
       - name: Cache Flutter and Dart dependencies
         uses: actions/cache@v2
