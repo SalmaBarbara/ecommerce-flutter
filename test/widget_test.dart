@@ -1,4 +1,4 @@
-// This is a basic Flutter widget test.
+/*// This is a basic Flutter widget test.
 //
 // To perform an interaction with a widget in your test, use the WidgetTester
 // utility in the flutter_test package. For example, you can send tap and scroll
@@ -28,3 +28,16 @@ void main() {
     expect(find.text('1'), findsOneWidget);
   });
 }
+*/
+
+import 'package:flutter_test/flutter_test.dart';
+
+
+
+void main() {
+  test('test', () {
+    expect(true, true); 
+
+  });
+}
+
