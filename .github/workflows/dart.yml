@@ -1,7 +1,5 @@
 name: Ecommerce project CI
 
-name: Dart and Flutter
-
 on:
   push:
     branches: [ "main" ]
@@ -10,10 +8,12 @@ on:
 
 jobs:
   build:
+    name: Dart and Flutter CI
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
